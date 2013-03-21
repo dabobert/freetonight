@@ -11,8 +11,11 @@ gem "devise", "~> 2.2.3" #user authentication
 gem 'carmen-rails', '~> 1.0.0.beta3' #provides geographic data and country_select and subregion_select form helpers.
 gem "mysql2", "~> 0.3.11"
 
+#date stuff
 gem "ice_cube", "~> 0.10.0" #date recurrence
 gem "recurrence", "~> 1.2.0" #date recurrence
+gem "holidays", "~> 1.0.5"
+gem "business_time", "~> 0.6.1"
 
 group :assets do
   #gem "less", "~> 2.3.1"
