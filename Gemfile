@@ -30,6 +30,7 @@ end
 group :development do
   gem "random_data", "~> 1.6.0" #allows to easily create random date, like Random.email or Random.last
   gem "debugger", "~> 1.3.1"
+  gem "better_errors", "~> 0.7.2"
 end
 
 gem 'jquery-rails'
