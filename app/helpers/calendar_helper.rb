@@ -1,17 +1,17 @@
 module CalendarHelper
-#  def monthly_calendar(date = Date.today, &block)
-#    Calendar.new(self, date, nil, block).table
-#  end
-#
-#  def weekly_calendar(date = Date.today, &block)
-#    Calendar.new(self, date, 1, block).table
-#  end
-
-  def calendar(date = Date.today, &block)
-    Calendar.new(self, date, block).table
+  def monthly_calendar(date = Date.today, &block)
+    Calendar.new(self, :monthly, date, block).table
   end
 
-  class Calendar < Struct.new(:view, :date, :callback)
+  def weekly_calendar(date = Date.today, &block)
+    Calendar.new(self, :weekly, date, block).table
+  end
+
+#  def calendar(date = Date.today, &block)
+#    Calendar.new(self, date, block).table
+#  end
+
+  class Calendar < Struct.new(:view, :mode, :date, :callback)
     HEADER = %w[Sunday Monday Tuesday Wednesday Thursday Friday Saturday]
     START_DAY = :sunday
 
@@ -49,9 +49,16 @@ module CalendarHelper
     end
 
     def weeks
-      first = date.beginning_of_month.beginning_of_week(START_DAY)
-      last = date.end_of_month.end_of_week(START_DAY)
-      (first..last).to_a.in_groups_of(7)
+      if mode == :monthly
+        first = date.beginning_of_month.beginning_of_week(START_DAY)
+        last = date.end_of_month.end_of_week(START_DAY)
+        (first..last).to_a.in_groups_of(7)
+      elsif mode == :weekly
+        first = date.beginning_of_week(START_DAY)
+        last = date.end_of_week(START_DAY)
+        (first..last).to_a.in_groups_of(7)
+      end
+        
     end
   end
 end

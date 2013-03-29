@@ -1,6 +1,6 @@
 <div id="articles">
   <h2 id="month"><%= @date.strftime("%B %Y") %></h2>
-  <%= calendar @date do |date| %>
+  <%= weekly_calendar @date do |date| %>
     <%= date.day %>
     <% if false && @articles_by_date[date] %>
     <ul>
