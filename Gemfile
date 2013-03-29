@@ -23,7 +23,8 @@ group :assets do
   
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
-
+  gem 'jquery-ui-rails'
+  gem 'jquery-rails'
   gem 'uglifier', '>= 1.0.3'
 end
 
@@ -32,5 +33,3 @@ group :development do
   gem "debugger", "~> 1.3.1"
   gem "better_errors", "~> 0.7.2"
 end
-
-gem 'jquery-rails'
