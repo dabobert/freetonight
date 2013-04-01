@@ -13,6 +13,17 @@
 </div>
 
 <hr>
+<div style="width:100px">
+   <% 0.upto(23) do |i| %>
+      <div style="border: 1px solid gray; height: 25px;">
+         <%= (Time.utc(0)+i.hour).strftime("%-I%P") %>
+      </div>
+      <div style="border: 1px solid gray; height: 25px;">
+         &nbsp;
+      </div>
+   <% end %>
+</div>
+<!--
 <table id="tgTable" class="tg-timedevents" cellpadding="0" cellspacing="0" style="height:1010px">
    <tbody>
       <tr height="1">
@@ -284,3 +295,4 @@
       </tr>
    </tbody>
 </table>
+-->
