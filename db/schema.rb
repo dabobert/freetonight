@@ -23,14 +23,4 @@ ActiveRecord::Schema.define(:version => 20130329022231) do
     t.datetime "updated_at",      :null => false
   end
 
-  create_table "recurring_events", :force => true do |t|
-    t.string   "name"
-    t.datetime "start_date_time"
-    t.integer  "duration"
-    t.integer  "repeat_type_id"
-    t.integer  "frequency"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
-  end
-
 end

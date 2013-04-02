@@ -38,7 +38,11 @@ module CalendarHelper
     end
 
     def day_cell(day)
-      content_tag :td, view.capture(day, &callback), class: day_classes(day)
+      if mode == :monthly
+        content_tag :td, view.capture(day, &callback), class: day_classes(day)
+      elsif mode == :weekly
+        content_tag :td, view.capture(day, &callback), class: day_classes(day)
+      end
     end
 
     def day_classes(day)
