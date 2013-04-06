@@ -1,16 +1,7 @@
 <div id="articles">
 	<h2 id="month"><%= @date.strftime("%B %Y") %></h2>
 
-	<div class="hours">
-   <% 0.upto(23) do |i| %>
-      <div class="half_hour">
-         <%= (Time.utc(0)+i.hour).strftime("%-I%P") %>
-      </div>
-      <div class="half_hour">
-         &nbsp;
-      </div>
-   <% end %>
-	</div>
+	<%= hours(true) %>
 	
 	<%= weekly_calendar @date do |date| %>
 		<%= date.day %>
