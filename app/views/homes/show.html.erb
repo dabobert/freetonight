@@ -4,6 +4,7 @@
 	<%= hours(true) %>
 	
 	<%= weekly_calendar @date do |date| %>
-		<%= date.day %>
+		<%#= date.day %>
+    <%= hours %>
 	<% end %>
 </div>

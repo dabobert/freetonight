@@ -3,34 +3,44 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+$day_cell_width: 100px;
+
 .hours {
-  width:100px;
+  width: $day_cell_width;
   float:left;
-  margin-top: 25px;
+  margin-top: 26px;
   border-left: 1px solid gray;
+  border-right: 1px solid gray;
+
+  .half_hour {
+    border-top: 1px solid gray;
+    height: 25px;
+  }
 }
 
-.hours .half_hour {
-  border-top: 1px solid gray;
-  height: 25px;
-}
 
 .calendar {
   border-collapse: collapse;
-  width: 800px;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
 
   td, th {
     font-family: "Lucida Grande", arial, helvetica, sans-serif;
     font-size: 10px;
-    padding: 6px;
-    border: 1px solid #999;
+    border: 0px solid #999;
+    width: $day_cell_width;
+  }
+
+  th {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border-left: 1px solid #999;
   }
 
   th {
     background: #DDD;
     color: #666;
     text-align: center;
-    width: 14.2857142857143%;
   }
 
   td {
@@ -39,6 +49,10 @@
     height: 80px;
     vertical-align: top;
     font-size: 16px;
+
+    .hours {
+      margin-top: 0px;
+    }
   }
 
   .notmonth, .notmonth a { color: #CCC; }
