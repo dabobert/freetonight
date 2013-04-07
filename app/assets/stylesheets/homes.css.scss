@@ -4,6 +4,8 @@
 
 
 $day_cell_width: 100px;
+$half_hour_height: 25px;
+$hour_height: 51px;
 
 .hours {
   width: $day_cell_width;
@@ -12,9 +14,14 @@ $day_cell_width: 100px;
   border-left: 1px solid gray;
   border-right: 1px solid gray;
 
+  .hour {
+    border-top: 1px solid gray;
+    height: $hour_height;
+  }
+
   .half_hour {
     border-top: 1px solid gray;
-    height: 25px;
+    height: $half_hour_height;
   }
 }
 
