@@ -1,9 +1,19 @@
 class Availability < ActiveRecord::Base
-  # attr_accessible :title, :body
-  #Thing.find(:all, :condition => ["created_at > ?", Time.now - 1.day])
 
-  #Time is stored internally as the number of seconds with fraction since the Epoch, January 1, 1970 00:00 UTC.
-  #Just format it like this: t = Time.now.strftime("at %I:%M%p")
+
+def start_i
+  @start_i ||= self.start_date_time.hour + self.start_date_time.min/60.0
+end
+
+def end_i
+  @end_i ||= (self.start_date_time+self.duration).hour + (self.start_date_time+self.duration).min/60.0
+end
+
+# attr_accessible :title, :body
+#Thing.find(:all, :condition => ["created_at > ?", Time.now - 1.day])
+
+#Time is stored internally as the number of seconds with fraction since the Epoch, January 1, 1970 00:00 UTC.
+#Just format it like this: t = Time.now.strftime("at %I:%M%p")
 
 
 =begin
