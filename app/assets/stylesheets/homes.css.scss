@@ -11,17 +11,25 @@ $hour_height: 51px;
   width: $day_cell_width;
   float:left;
   margin-top: 26px;
-  border-left: 1px solid gray;
-  border-right: 1px solid gray;
+
+
+  .hour, .half_hour {
+    border-top: 1px solid gray;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+  }
 
   .hour {
-    border-top: 1px solid gray;
     height: $hour_height;
   }
 
   .half_hour {
-    border-top: 1px solid gray;
     height: $half_hour_height;
+  }
+
+  .break {
+    border-top: 1px solid gray;
+    height: 15px;
   }
 }
 

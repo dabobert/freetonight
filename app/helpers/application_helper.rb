@@ -1,6 +1,6 @@
 module ApplicationHelper
 
-  def hours(label=false, availability=nil)
+  def hours(availabilities=nil, label=false)
     content_tag :div, class: "hours" do
       if label.present?
         inc = 1
@@ -10,12 +10,18 @@ module ApplicationHelper
         css = "half_hour"
       end
 
-      if availability.present?
-        ((availability.start_i)..(availability.end_i)).step(inc).to_a.collect do |i|
-          "<div class=\"#{css}\">#{(Time.utc(0)+i.hour).strftime("%-I%P") if (i/ 0.5) % 2 == 0 && label}</div>".html_safe
-        end.reduce(:<<) # Will concat using the SafeBuffer instead of String with join
+      if availabilities.present?
+        availabilities.collect do |availability|
+          if availability == "xxx"
+            content_tag :div, "~~~~~~~~~~~", class: :break
+          else
+            availability.step(inc).collect do |i|
+              "<div class=\"#{css}\">#{(Time.utc(0)+i.hour).strftime("%-I%P") if (i/ 0.5) % 2 == 0 && label}</div>".html_safe
+            end.reduce(:<<) # Will concat using the SafeBuffer instead of String with join
+          end
+        end.reduce(:<<)
       else
-        (0..23.5).step(inc).to_a.collect do |i|
+        (0..23.5).step(inc).collect do |i|
           "<div class=\"#{css}\">#{(Time.utc(0)+i.hour).strftime("%-I%P") if (i/ 0.5) % 2 == 0 && label}</div>".html_safe
         end.reduce(:<<) # Will concat using the SafeBuffer instead of String with join
       end

@@ -1,10 +1,9 @@
 <div id="articles">
 	<h2 id="month"><%= @date.strftime("%B %Y") %></h2>
 
-	<%= hours(true, @availability) %>
+	<%= hours(@availabilities, true) %>
 	
 	<%= weekly_calendar @date do |date| %>
-		<%#= date.day %>
-    <%= hours false, @availability %>
+    <%= hours @availabilities %>
 	<% end %>
 </div>
