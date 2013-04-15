@@ -16,6 +16,7 @@ module ApplicationHelper
             content_tag :div, "~~~~~~~~~~~", class: :break
           else
             availability.step(inc).collect do |i|
+              next if i == availability.max
               "<div class=\"#{css}\">#{(Time.utc(0)+i.hour).strftime("%-I%P") if (i/ 0.5) % 2 == 0 && label}</div>".html_safe
             end.reduce(:<<) # Will concat using the SafeBuffer instead of String with join
           end
