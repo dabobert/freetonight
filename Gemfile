@@ -13,9 +13,8 @@ gem "mysql2", "~> 0.3.11"
 
 #date stuff
 gem "ice_cube", "~> 0.10.0" #date recurrence
-gem "recurrence", "~> 1.2.0" #date recurrence
-gem "holidays", "~> 1.0.5"
-gem "business_time", "~> 0.6.1"
+#gem "holidays", "~> 1.0.5"
+#gem "business_time", "~> 0.6.1"
 
 group :assets do
   #gem "less", "~> 2.3.1"

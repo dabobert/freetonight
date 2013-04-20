@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  start_date_time: 2013-04-17 00:05:58
+  duration: 1
+  repeat_type_id: 1
+  frequency: 1
+
+two:
+  start_date_time: 2013-04-17 00:05:58
+  duration: 1
+  repeat_type_id: 1
+  frequency: 1
