@@ -30,5 +30,6 @@ end
 group :development do
   gem "random_data", "~> 1.6.0" #allows to easily create random date, like Random.email or Random.last
   gem "debugger", "~> 1.3.1"
-  gem "better_errors", "~> 0.7.2"
+  gem "better_errors", "~> 0.7.2" #rails error pages actually provide useful
+  gem "binding_of_caller", "~> 0.7.1" #intergrates debugger into better errors page
 end
