@@ -13,7 +13,7 @@ module ApplicationHelper
       if availabilities.present?
         availabilities.collect do |availability|
           if availability == "xxx"
-            content_tag :div, "~~~~~~~~~~~", class: :break
+            content_tag :div, "~~~~~~~~~~", class: :break
           else
             availability.step(inc).collect do |i|
               next if i == availability.max
