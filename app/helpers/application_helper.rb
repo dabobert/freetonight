@@ -1,8 +1,10 @@
 module ApplicationHelper
 
-  def hours(availabilities=nil, label=false)
+  def hours(availabilities=nil, *args)
+    options = args.extract_options!
+
     content_tag :div, class: "hours" do
-      if label.present?
+      if options[:label].present?
         inc = 1
         css = "hour"
       else
@@ -17,13 +19,13 @@ module ApplicationHelper
           else
             availability.step(inc).collect do |i|
               next if i == availability.max
-              "<div class=\"#{css}\">#{(Time.utc(0)+i.hour).strftime("%-I%P") if (i/ 0.5) % 2 == 0 && label}</div>".html_safe
+              "<div class=\"#{css}\">#{(Time.utc(0)+i.hour).strftime("%-I%P") if (i/ 0.5) % 2 == 0 && options[:label].present? }</div>".html_safe
             end.reduce(:<<) # Will concat using the SafeBuffer instead of String with join
           end
         end.reduce(:<<)
       else
         (0..23.5).step(inc).collect do |i|
-          "<div class=\"#{css}\">#{(Time.utc(0)+i.hour).strftime("%-I%P") if (i/ 0.5) % 2 == 0 && label}</div>".html_safe
+          "<div class=\"#{css}\">#{(Time.utc(0)+i.hour).strftime("%-I%P") if (i/ 0.5) % 2 == 0 && options[:label].present? }</div>".html_safe
         end.reduce(:<<) # Will concat using the SafeBuffer instead of String with join
       end
     end

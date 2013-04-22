@@ -4,7 +4,7 @@
 <div id="articles">
 	<h2 id="month"><%= @date.strftime("%B %Y") %></h2>
 
-	<%= hours(@availabilities, true) %>
+	<%= hours(@availabilities, :label=>true) %>
 	
 	<%= weekly_calendar @date do |date| %>
     <%= hours @availabilities %>
