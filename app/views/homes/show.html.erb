@@ -7,6 +7,6 @@
 	<%= hours(@availabilities, :label=>true) %>
 	
 	<%= weekly_calendar @date do |date| %>
-    <%= hours @availabilities %>
+    <%= hours @availabilities, :events => @plans[date] %>
 	<% end %>
 </div>

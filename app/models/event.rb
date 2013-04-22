@@ -2,6 +2,8 @@ class Event < ActiveRecord::Base
   include IceCube
   serialize :schedule, Hash
 
+  HOUR_HEIGHT = 51
+
   attr_accessible :duration, :frequency, :name, :schedule
 
   def schedule=(new_schedule)

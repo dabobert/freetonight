@@ -23,6 +23,8 @@ module ApplicationHelper
             end.reduce(:<<) # Will concat using the SafeBuffer instead of String with join
           end
         end.reduce(:<<)
+      elsif options[:events].present?
+         "<div class=\"#{css}\">#{debug events}</div>"
       else
         (0..23.5).step(inc).collect do |i|
           "<div class=\"#{css}\">#{(Time.utc(0)+i.hour).strftime("%-I%P") if (i/ 0.5) % 2 == 0 && options[:label].present? }</div>".html_safe
