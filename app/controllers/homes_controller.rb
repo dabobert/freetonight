@@ -8,7 +8,8 @@ class HomesController < ApplicationController
     @events           = Event.all
     @plans            = {}
 
-    (@first_day..@last_day).to_a.each do |day|
+    @dates = (@first_day..@last_day).to_a
+    @dates.each do |day|
       @plans.merge! day => []
       @events.each do |event|
         (@plans[day] << event) if event.schedule.occurs_on?(day)
